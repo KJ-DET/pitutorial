@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 
-GPIO_MOTOR = 22
+GPIO_MOTOR = 18#22
 
 def gpio_init():
    GPIO.setmode(GPIO.BCM)
@@ -21,11 +21,12 @@ def motor_off():
 def loop():
     while True:
         motor_on()
-        time.sleep(2)
+        time.sleep(0.25)
         motor_off()
-        time.sleep(1)
-        
-
+        time.sleep(0.5)
+        motor_on()
+        time.sleep(0.25)
+        motor_off()
 gpio_init()
 try:
     loop()
